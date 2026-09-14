@@ -92,21 +92,21 @@ set shiftwidth=4
 EOF
 
 
-echo "==> Configuring .bashrc..."
-BASHRC_FILE="$REAL_HOME/.bashrc"
+echo "==> Configuring .zshrc..."
+ZSHRC_FILE="$REAL_HOME/.zshrc"
 
 # Create .bashrc if it doesn't exist
-if [ ! -f "$BASHRC_FILE" ]; then
-        sudo -u "$REAL_USER" touch "$BASHRC_FILE"
+if [ ! -f "$ZSHRC_FILE" ]; then
+        sudo -u "$REAL_USER" touch "$ZSHRC_FILE"
 fi
 
 # Append EDITOR and VISUAL exports if they aren't already present
-if ! grep -qE '^\s*export\s+EDITOR=' "$BASHRC_FILE"; then
-        echo 'export EDITOR="nvim"' | sudo -u "$REAL_USER" tee -a "$BASHRC_FILE" > /dev/null
+if ! grep -qE '^\s*export\s+EDITOR=' "$ZSHRC_FILE"; then
+        echo 'export EDITOR="nvim"' | sudo -u "$REAL_USER" tee -a "$ZSHRC_FILE" > /dev/null
 fi
 
-if ! grep -qE '^\s*export\s+VISUAL=' "$BASHRC_FILE"; then
-        echo 'export VISUAL="nvim"' | sudo -u "$REAL_USER" tee -a "$BASHRC_FILE" > /dev/null
+if ! grep -qE '^\s*export\s+VISUAL=' "$ZSHRC_FILE"; then
+        echo 'export VISUAL="nvim"' | sudo -u "$REAL_USER" tee -a "$ZSHRC_FILE" > /dev/null
 fi
 
 
