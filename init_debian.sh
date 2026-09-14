@@ -91,6 +91,26 @@ set softtabstop=4
 set shiftwidth=4
 EOF
 
+
+echo "==> Configuring .bashrc..."
+BASHRC_FILE="$REAL_HOME/.bashrc"
+
+# Create .bashrc if it doesn't exist
+if [ ! -f "$BASHRC_FILE" ]; then
+        sudo -u "$REAL_USER" touch "$BASHRC_FILE"
+fi
+
+# Append EDITOR and VISUAL exports if they aren't already present
+if ! grep -qE '^\s*export\s+EDITOR=' "$BASHRC_FILE"; then
+        echo 'export EDITOR="nvim"' | sudo -u "$REAL_USER" tee -a "$BASHRC_FILE" > /dev/null
+fi
+
+if ! grep -qE '^\s*export\s+VISUAL=' "$BASHRC_FILE"; then
+        echo 'export VISUAL="nvim"' | sudo -u "$REAL_USER" tee -a "$BASHRC_FILE" > /dev/null
+fi
+
+
+
 echo "==> Done!"
 echo ""
 echo "Summary:"
