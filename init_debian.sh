@@ -6,6 +6,15 @@
 # Exit on any error
 set -e
 
+
+# Check internet connectivity
+if [ ! nc -zw1 google.com 443]; then
+  echo "No internet connection"
+  exit
+fi
+
+
+
 # Check if running as root or with sudo
 if [ "$EUID" -ne 0 ] && [ "$(sudo -n true 2>/dev/null; echo $?)" -ne 0 ]; then
         echo "This script requires sudo privileges."
