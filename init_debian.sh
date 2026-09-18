@@ -35,7 +35,7 @@ sudo apt update
 sudo apt upgrade -y
 
 echo "==> Installing required packages..."
-sudo apt install -y git neovim curl wget openssh-client openssh-server zsh
+sudo apt install -y git neovim curl wget openssh-client openssh-server zsh systemd-resolved
 
 echo "==> Installing Oh My Zsh for user $REAL_USER..."
 # Install Oh My Zsh as the real user
