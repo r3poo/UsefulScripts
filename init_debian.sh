@@ -98,6 +98,7 @@ sudo -u "$REAL_USER" tee "$NVIM_INIT_FILE" > /dev/null <<'EOF'
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+set expandtab
 EOF
 
 
